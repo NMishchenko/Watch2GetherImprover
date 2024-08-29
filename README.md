@@ -1,6 +1,7 @@
 # Watch2Gether Improver
-The script for w2g.tv allows switching to/from bordered fullscreen, using some hotkeys inside YouTube fullscreen mode, and other features.<br />
-For use as a userscript in TamperMonkey, Greasemonkey, etc.
+The script for w2g.tv allows switching to/from bordered fullscreen, using some hotkeys inside YouTube fullscreen mode, and other features.<br/>
+For use as a userscript in TamperMonkey, Greasemonkey, etc.<br/><br/>
+[**GreasyFork Link**](https://greasyfork.org/en/scripts/505733-watch2gether-improver?locale_override=1)
 
 # Improvements
 * Added activation or deactivation bordered fullscreen by pressing the Num+ key (can be changed).
