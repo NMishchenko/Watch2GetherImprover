@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Watch2Gether Improver
 // @namespace    NLinconScripts
-// @version      2024-08-28
+// @version      2024-08-29
 // @description  Adds the possibility to switch to/from bordered fullscreen, use some hotkeys inside YouTube fullscreen mode, and other features
 // @author       NLincon
 // @license      GPL-3.0-or-later
