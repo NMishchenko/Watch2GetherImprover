@@ -4,6 +4,7 @@
 // @version      2024-08-28
 // @description  Adds the possibility to switch to/from bordered fullscreen, use some hotkeys inside YouTube fullscreen mode, and other features
 // @author       NLincon
+// @license      GPL-3.0-or-later
 // @match        https://w2g.tv/*/room/*
 // @match        https://www.youtube.com/embed/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=w2g.tv
