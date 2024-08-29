@@ -10,5 +10,5 @@ For use as a userscript in TamperMonkey, Greasemonkey, etc.
 * Removed the "Popular Videos" section.
 
 # Post Scriptum
-This script was made for personal use and published to demonstrate the possibilities of improving the user experience for a website.<br />
+This script was made for personal use and published to demonstrate the possibilities of improving the user experience for the website.<br />
 The code was written just to achieve the result with little or no use of some best coding practices.
