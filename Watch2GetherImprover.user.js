@@ -16,19 +16,22 @@
 var $ = window.jQuery;
 var isInterfaceChanged = false;
 
-$(document).ready(function() {
+$(document).ready(function () {
     if (location.hostname === 'w2g.tv') {
+        // COMMENTED DUE TO PLAYBACK FREEZE DEFECT
+        // ---------------------------------------
         // Automatically join the room with an auto-generated nickname
         // TODO: Comment this section if you want to set different custom nicknames for each session
-        $('#intro-modal').ready(function() {
-            setTimeout(function() {
-                // TODO: Uncomment and change your permanent nickname if necessary
-                // document.getElementById('intro-nickname').value = 'Cool Nickname';
-                const event = new Event('change');
-                document.getElementById('intro-nickname').dispatchEvent(event);
-                $('#w2g-join-button').click();
-            }, 200);
-        });
+        // $('#intro-modal').ready(function() {
+        //     setTimeout(function() {
+        //         // TODO: Uncomment and change your permanent nickname if necessary
+        //         // document.getElementById('intro-nickname').value = 'Cool Nickname';
+        //         const event = new Event('change');
+        //         document.getElementById('intro-nickname').dispatchEvent(event);
+        //         $('#w2g-join-button').trigger("click");
+        //     }, 300);
+        // });
+        // ---------------------------------------
 
         // remove 'Popular Videos' section
         $('.w2g-editorial').remove();
@@ -36,7 +39,7 @@ $(document).ready(function() {
         // create custom events to fire w2g hotkeys events
         createCustomEvents();
 
-        window.addEventListener('keydown', function(e) {
+        window.addEventListener('keydown', function (e) {
             // TODO: Change key code to switch bordered fullscreen if necessary
             if (e.code === 'NumpadAdd') {
                 e.preventDefault();
@@ -69,11 +72,18 @@ $(document).ready(function() {
             return;
         }
 
-        // disable pause/unpause click on YouTube player
+        // for some reason YouTube Embed can hide the info bar in Firefox
+        // show the info bar if it disappeared
         var moviePlayer = document.getElementById('movie_player');
+        var className = 'ytp-hide-info-bar';
+        if (moviePlayer.classList.contains(className)) {
+            moviePlayer.classList.remove(className);
+        }
+
+        // disable pause/unpause click on YouTube player
         var playerOverlayElement = document.createElement('div');
         playerOverlayElement.style.cssText = 'width: 100%; height: 100%; position: absolute; z-index: 10;';
-        playerOverlayElement.addEventListener('dblclick', function(e) {
+        playerOverlayElement.addEventListener('dblclick', function (e) {
             var dblClickEvent = new MouseEvent('dblclick', {
                 'bubbles': true,
                 'cancelable': true
@@ -82,7 +92,7 @@ $(document).ready(function() {
         })
         moviePlayer.appendChild(playerOverlayElement);
 
-        window.addEventListener('keydown', function(e) {
+        window.addEventListener('keydown', function (e) {
             switch (e.code) {
                 case ('Space'):
                     GM_setValue('pauseFired', Math.random());
@@ -99,7 +109,7 @@ $(document).ready(function() {
 })
 
 function createCustomEvents() {
-    GM_addValueChangeListener('pauseFired', function() {
+    GM_addValueChangeListener('pauseFired', function () {
         const pauseEvent = new KeyboardEvent('keydown', {
             key: 'k',
             bubbles: true
@@ -108,7 +118,7 @@ function createCustomEvents() {
         document.documentElement.dispatchEvent(pauseEvent);
     });
 
-    GM_addValueChangeListener('moveBackFired', function() {
+    GM_addValueChangeListener('moveBackFired', function () {
         const keyLeftEvent = new KeyboardEvent('keydown', {
             key: 'ArrowLeft',
             bubbles: true
@@ -117,7 +127,7 @@ function createCustomEvents() {
         document.documentElement.dispatchEvent(keyLeftEvent);
     });
 
-    GM_addValueChangeListener('moveForwardFired', function() {
+    GM_addValueChangeListener('moveForwardFired', function () {
         const keyRightEvent = new KeyboardEvent('keydown', {
             key: 'ArrowRight',
             bubbles: true
